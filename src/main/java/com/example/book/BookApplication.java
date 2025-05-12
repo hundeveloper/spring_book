@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(scanBasePackages = {
         "com.example.book",
-        "com.example.book.university"
 })
 public class BookApplication {
 
