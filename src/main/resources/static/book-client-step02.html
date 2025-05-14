@@ -1,0 +1,63 @@
+<!-- book-client-step02.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f8f9fa;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      margin: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<h1>Register a New Book</h1>
+<form id="bookForm">
+  <label>Title: <input type="text" name="title" /></label>
+  <label>Author: <input type="text" name="author" /></label>
+  <label>ISBN: <input type="text" name="isbn" /></label>
+  <label>Price: <input type="number" name="price" /></label>
+  <label>Publish Date: <input type="date" name="publishDate" /></label>
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>
