@@ -1,11 +1,14 @@
 package com.example.book.university.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+@Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table(name = "students", uniqueConstraints = @UniqueConstraint(columnNames = "studentNumber"))
 public class Student {
 
     @Id
@@ -14,11 +17,20 @@ public class Student {
 
     private String name;
 
-    @Column(unique = true)
+    @Column(nullable = false, unique = true)
     private String studentNumber;
 
-    @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name = "department_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id", nullable = false)
     private Department department;
+
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    private StudentDetail detail;
+
+    public void setDetail(StudentDetail detail) {
+        this.detail = detail;
+        if (detail != null) {
+            detail.setStudent(this);
+        }
+    }
 }
